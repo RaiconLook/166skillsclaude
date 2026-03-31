@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>166 Skills para Claude Code — WeStack</title>
+<meta name="description" content="Baixe gratis o guia definitivo com 166 Skills prontas para dominar o Claude Code e multiplicar sua produtividade.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--bg-card:#141414;--bg-card-hover:#1A1A1A;--border:#222;--border-hover:#333;--text:#F4F4F0;--text-muted:#888;--text-dim:#555;--acid:#FF4D00;--acid-lt:#FF6A1A;--acid-dk:#E04400;--acid-glow:rgba(255,77,0,0.15);--green:#4ADE80;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.6;}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--text);letter-spacing:1px;}
+.nav-logo span{color:var(--acid);}
+.nav-cta{background:var(--acid);color:#fff;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;padding:10px 24px;border-radius:999px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.nav-cta:hover{background:var(--acid-lt);transform:translateY(-1px);box-shadow:0 4px 20px var(--acid-glow);}
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 40px 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 60%);pointer-events:none;}
+.hero-inner{max-width:900px;text-align:center;position:relative;z-index:2;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,0,0.1);border:1px solid rgba(255,77,0,0.3);color:var(--acid-lt);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;padding:8px 20px;border-radius:999px;margin-bottom:28px;letter-spacing:1px;}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(42px,6vw,72px);line-height:1.05;margin-bottom:20px;color:var(--text);}
+.hero h1 .ac{color:var(--acid);}
+.hero h1 .caret{display:inline-block;width:3px;height:0.8em;background:var(--acid);margin-left:4px;animation:blink 1s step-end infinite;vertical-align:baseline;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.hero-sub{font-size:18px;color:var(--text-muted);max-width:600px;margin:0 auto 32px;line-height:1.7;}
+.hero-free{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;}
+.hero-free .tag{background:var(--green);color:#000;font-family:'Inter',sans-serif;font-weight:800;font-size:14px;padding:6px 18px;border-radius:999px;letter-spacing:1px;}
+.hero-free .old{font-size:16px;color:var(--text-dim);text-decoration:line-through;}
+.btn-primary{background:var(--acid);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:16px 40px;border-radius:999px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 30px var(--acid-glow);}
+.btn-primary:hover{background:var(--acid-lt);transform:translateY(-2px);box-shadow:0 8px 40px rgba(255,77,0,0.3);}
+
+.hero-terminal{background:#141414;border:1px solid var(--border);border-radius:12px;padding:20px 24px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.8;max-width:560px;margin:36px auto 0;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.hero-terminal .dots{display:flex;gap:6px;margin-bottom:14px;}
+.hero-terminal .dots span{width:10px;height:10px;border-radius:50%;}
+.hero-terminal .dots .r{background:#FF5F57;}.hero-terminal .dots .y{background:#FFBD2E;}.hero-terminal .dots .g{background:#28CA41;}
+.hero-terminal .line{margin-bottom:2px;}
+.hero-terminal .prompt{color:var(--acid-lt);}
+.hero-terminal .comment{color:var(--text-dim);}
+.hero-terminal .success{color:var(--green);}
+
+.marquee{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;white-space:nowrap;}
+.marquee-track{display:inline-flex;animation:scroll 30s linear infinite;}
+.marquee-track span{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:var(--text-dim);padding:0 28px;letter-spacing:2px;text-transform:uppercase;}
+.marquee-track span .dot{color:var(--acid);margin-right:10px;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+.section{padding:56px 40px;max-width:1100px;margin:0 auto;}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--acid);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.15;margin-bottom:12px;}
+.section-sub{font-size:15px;color:var(--text-muted);max-width:600px;line-height:1.7;margin-bottom:36px;}
+
+.problems{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.problem-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .2s;}
+.problem-card:hover{border-color:var(--border-hover);background:var(--bg-card-hover);}
+.problem-card .icon{font-size:24px;margin-bottom:10px;}
+.problem-card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;margin-bottom:6px;}
+.problem-card p{font-size:12px;color:var(--text-muted);line-height:1.6;}
+
+.ebook-showcase{display:flex;gap:48px;align-items:center;flex-wrap:wrap;}
+.ebook-visual{flex:1;min-width:240px;display:flex;justify-content:center;}
+.book-3d{width:220px;height:310px;position:relative;perspective:1000px;}
+.book-cover{width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 50%,#1a1a1a 100%);border-radius:4px 12px 12px 4px;box-shadow:-8px 8px 40px rgba(0,0,0,0.5),inset 0 0 0 1px rgba(255,77,0,0.15);transform:rotateY(-15deg);transition:transform .4s;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;border-left:6px solid var(--acid);}
+.book-3d:hover .book-cover{transform:rotateY(-5deg);}
+.book-cover .bc-badge{background:var(--acid);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:9px;padding:4px 14px;border-radius:999px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;}
+.book-cover .bc-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--text);line-height:1.2;margin-bottom:6px;}
+.book-cover .bc-title span{color:var(--acid);}
+.book-cover .bc-sub{font-size:10px;color:var(--text-muted);margin-bottom:16px;}
+.book-cover .bc-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:10px;color:var(--text-dim);letter-spacing:2px;}
+.ebook-info{flex:1;min-width:280px;}
+.ebook-info h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;line-height:1.2;margin-bottom:12px;}
+.ebook-info h2 span{color:var(--acid);}
+.ebook-info>p{color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:24px;}
+.stat-row{display:flex;gap:28px;margin-bottom:24px;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;color:var(--acid);}
+.stat .label{font-size:11px;color:var(--text-muted);margin-top:2px;}
+
+.chapters-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.chapter-card{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;transition:all .2s;cursor:default;}
+.chapter-card:hover{border-color:var(--acid);background:var(--bg-card-hover);}
+.chapter-card .ch-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--acid);margin-bottom:6px;}
+.chapter-card h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;margin-bottom:4px;}
+.chapter-card .ch-count{font-size:10px;color:var(--text-muted);}
+.chapter-card .ch-examples{font-size:10px;color:var(--text-dim);margin-top:6px;line-height:1.5;}
+
+.skill-previews{display:flex;flex-direction:column;gap:12px;}
+.skill-card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .2s;}
+.skill-card:hover{border-color:var(--acid);}
+.skill-header{padding:16px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;}
+.skill-header .sk-num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;color:var(--acid);min-width:36px;}
+.skill-header h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;flex:1;}
+.skill-header .sk-tag{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);background:rgba(255,255,255,0.05);padding:3px 10px;border-radius:999px;}
+.skill-header .sk-arrow{color:var(--text-dim);transition:transform .2s;font-size:16px;}
+.skill-card.open .sk-arrow{transform:rotate(180deg);}
+.skill-body{display:none;padding:0 20px 16px;border-top:1px solid var(--border);}
+.skill-card.open .skill-body{display:block;padding-top:14px;}
+.skill-body p{font-size:13px;color:var(--text-muted);margin-bottom:10px;line-height:1.6;}
+.skill-body .skill-term{background:#1A1A1A;border:1px solid #2A2A2A;border-radius:8px;padding:12px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;color:var(--text);}
+.skill-body .skill-term .p{color:var(--acid-lt);}
+.skill-body .skill-term .c{color:var(--green);}
+
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.benefit{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .2s;}
+.benefit:hover{border-color:var(--acid);background:var(--bg-card-hover);}
+.benefit .b-icon{font-size:28px;margin-bottom:12px;}
+.benefit h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;margin-bottom:6px;}
+.benefit p{font-size:12px;color:var(--text-muted);line-height:1.6;}
+
+.audience-list{display:flex;flex-direction:column;gap:10px;max-width:600px;}
+.audience-item{display:flex;align-items:center;gap:12px;font-size:14px;}
+.audience-item .ck{color:var(--acid);font-weight:700;font-size:18px;flex-shrink:0;}
+
+.cta-section{padding:64px 40px;text-align:center;}
+.cta-card{max-width:520px;margin:0 auto;background:var(--bg-card);border:2px solid var(--acid);border-radius:20px;padding:44px 36px;position:relative;overflow:hidden;}
+.cta-card::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 60%);pointer-events:none;}
+.cta-card .c-free{background:var(--green);color:#000;font-family:'Inter',sans-serif;font-weight:800;font-size:13px;padding:6px 20px;border-radius:999px;letter-spacing:1px;display:inline-block;margin-bottom:20px;position:relative;z-index:2;}
+.cta-card .c-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;margin-bottom:20px;position:relative;z-index:2;}
+.cta-card .c-features{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;position:relative;z-index:2;}
+.cta-card .c-features li{font-size:13px;display:flex;align-items:center;gap:10px;}
+.cta-card .c-features li .ck{color:var(--acid);font-weight:700;flex-shrink:0;}
+.cta-card .c-btn{width:100%;background:var(--acid);color:#fff;font-family:'Inter',sans-serif;font-weight:700;font-size:16px;padding:18px;border-radius:999px;border:none;cursor:pointer;transition:all .25s;position:relative;z-index:2;box-shadow:0 4px 30px var(--acid-glow);text-decoration:none;display:block;text-align:center;}
+.cta-card .c-btn:hover{background:var(--acid-lt);transform:translateY(-2px);}
+.cta-card .c-note{margin-top:16px;font-size:11px;color:var(--text-dim);position:relative;z-index:2;}
+
+.faq-list{display:flex;flex-direction:column;gap:10px;max-width:700px;}
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.faq-q{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;transition:color .2s;}
+.faq-q:hover{color:var(--acid);}
+.faq-q .arrow{color:var(--text-dim);transition:transform .2s;font-size:16px;}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 20px 16px;font-size:13px;color:var(--text-muted);line-height:1.7;}
+.faq-item.open .faq-a{display:block;}
+
+.final-cta{padding:72px 40px;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--acid-glow) 0%,transparent 60%);pointer-events:none;}
+.final-cta h2{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(26px,4vw,38px);margin-bottom:14px;position:relative;z-index:2;}
+.final-cta h2 span{color:var(--acid);}
+.final-cta p{font-size:15px;color:var(--text-muted);margin-bottom:24px;position:relative;z-index:2;}
+.final-cta .btn-primary{position:relative;z-index:2;}
+
+.footer{border-top:1px solid var(--border);padding:32px;text-align:center;}
+.footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;color:var(--text-dim);letter-spacing:2px;margin-bottom:6px;}
+.footer-logo span{color:var(--acid);}
+.footer p{font-size:11px;color:var(--text-dim);}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  .nav{padding:0 16px;}
+  .hero{padding:90px 16px 48px;}
+  .section{padding:40px 16px;}
+  .ebook-showcase{flex-direction:column;gap:32px;}
+  .hero-sub{font-size:16px;}
+  .cta-section{padding:40px 16px;}
+  .final-cta{padding:48px 16px;}
+  .cta-card{padding:32px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">&gt;_ <span>We</span>{Stack}</div>
+  <a href="#download" class="nav-cta">Baixar Gratis</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">&#9889; 100% GRATUITO</div>
+    <h1><span class="ac">166</span> Skills_<span class="caret"></span><br>para dominar o<br>Claude Code.</h1>
+    <p class="hero-sub">O guia definitivo com 166 prompts, comandos e workflows prontos para transformar o Claude Code na sua arma secreta de produtividade.</p>
+    <div class="hero-free">
+      <span class="old">R$ 197,00</span>
+      <span class="tag">GRATIS</span>
+    </div>
+    <br>
+    <a href="obrigado.html" class="btn-primary">Baixar Ebook Gratis &rarr;</a>
+    <div class="hero-terminal">
+      <div class="dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+      <div class="line"><span class="prompt">$</span> claude "aplique a skill #042 neste projeto"</div>
+      <div class="line comment"># Skill: Gerar testes E2E com Playwright</div>
+      <div class="line">&nbsp;</div>
+      <div class="line"><span class="success">&#10003;</span> 14 arquivos de teste criados</div>
+      <div class="line"><span class="success">&#10003;</span> Cobertura de 94% atingida</div>
+      <div class="line"><span class="success">&#10003;</span> Pipeline CI configurado</div>
+      <div class="line">&nbsp;</div>
+      <div class="line comment">Tempo total: <span style="color:var(--acid-lt)">38 segundos</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track">
+<span><b class="dot">&#9679;</b> Code Generation</span><span><b class="dot">&#9679;</b> Debugging</span><span><b class="dot">&#9679;</b> Refactoring</span><span><b class="dot">&#9679;</b> Testing</span><span><b class="dot">&#9679;</b> Git Workflow</span><span><b class="dot">&#9679;</b> Documentation</span><span><b class="dot">&#9679;</b> API Dev</span><span><b class="dot">&#9679;</b> Database</span><span><b class="dot">&#9679;</b> DevOps</span><span><b class="dot">&#9679;</b> Security</span><span><b class="dot">&#9679;</b> Performance</span><span><b class="dot">&#9679;</b> Frontend</span><span><b class="dot">&#9679;</b> Backend</span><span><b class="dot">&#9679;</b> AI/ML</span><span><b class="dot">&#9679;</b> Project Mgmt</span><span><b class="dot">&#9679;</b> Code Review</span>
+<span><b class="dot">&#9679;</b> Code Generation</span><span><b class="dot">&#9679;</b> Debugging</span><span><b class="dot">&#9679;</b> Refactoring</span><span><b class="dot">&#9679;</b> Testing</span><span><b class="dot">&#9679;</b> Git Workflow</span><span><b class="dot">&#9679;</b> Documentation</span><span><b class="dot">&#9679;</b> API Dev</span><span><b class="dot">&#9679;</b> Database</span><span><b class="dot">&#9679;</b> DevOps</span><span><b class="dot">&#9679;</b> Security</span><span><b class="dot">&#9679;</b> Performance</span><span><b class="dot">&#9679;</b> Frontend</span><span><b class="dot">&#9679;</b> Backend</span><span><b class="dot">&#9679;</b> AI/ML</span><span><b class="dot">&#9679;</b> Project Mgmt</span><span><b class="dot">&#9679;</b> Code Review</span>
+</div></div>
+
+<section class="section reveal">
+  <div class="section-label">// O PROBLEMA</div>
+  <h2 class="section-title">Voce usa Claude Code...<br>mas esta usando <span style="color:var(--acid)">10%</span> do potencial.</h2>
+  <p class="section-sub">A maioria dos devs usa o Claude Code como um autocomplete glorificado. Voce poderia estar automatizando projetos inteiros.</p>
+  <div class="problems">
+    <div class="problem-card"><div class="icon">&#128337;</div><h3>Prompts genericos</h3><p>Voce escreve "faz um componente" e torce pro resultado ser bom. Sem estrutura, sem contexto.</p></div>
+    <div class="problem-card"><div class="icon">&#128165;</div><h3>Retrabalho constante</h3><p>O output nao vem do jeito que precisa. Mais tempo corrigindo do que codando do zero.</p></div>
+    <div class="problem-card"><div class="icon">&#128683;</div><h3>Features desperdicadas</h3><p>Skills, hooks, CLAUDE.md, slash commands, agentes... a maioria nao sabe que existe.</p></div>
+    <div class="problem-card"><div class="icon">&#127919;</div><h3>Sem sistema</h3><p>Cada tarefa comeca do zero. Sem biblioteca de prompts. Sem workflows replicaveis.</p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="ebook-showcase">
+    <div class="ebook-visual">
+      <div class="book-3d"><div class="book-cover">
+        <div class="bc-badge">EBOOK 2026</div>
+        <div class="bc-title"><span>166</span> Skills<br>Claude Code</div>
+        <div class="bc-sub">O guia definitivo para<br>dominar a CLI da Anthropic</div>
+        <div class="bc-logo">WESTACK</div>
+      </div></div>
+    </div>
+    <div class="ebook-info">
+      <div class="section-label">// O EBOOK</div>
+      <h2><span>166 Skills</span> organizadas em 16 capitulos prontos para usar.</h2>
+      <p>Cada skill e um prompt testado, com contexto, exemplo real e output esperado. Copie, cole no terminal e veja o resultado.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num">166</div><div class="label">Skills prontas</div></div>
+        <div class="stat"><div class="num">16</div><div class="label">Capitulos</div></div>
+        <div class="stat"><div class="num">200+</div><div class="label">Paginas</div></div>
+      </div>
+      <a href="obrigado.html" class="btn-primary">Baixar Gratis &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-label">// CONTEUDO</div>
+  <h2 class="section-title">16 capitulos. Zero enrolacao.</h2>
+  <p class="section-sub">Cada capitulo cobre uma area critica do desenvolvimento.</p>
+  <div class="chapters-grid">
+    <div class="chapter-card"><div class="ch-num">CAP. 01</div><h4>Code Generation</h4><div class="ch-count">14 skills</div><div class="ch-examples">Scaffold REST API, gerar tipos TS, monorepo...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 02</div><h4>Debugging</h4><div class="ch-count">12 skills</div><div class="ch-examples">Stack traces, async bugs, memory leaks...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 03</div><h4>Refactoring</h4><div class="ch-count">12 skills</div><div class="ch-examples">Extrair funcoes, JS para TS, SOLID...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 04</div><h4>Testing & QA</h4><div class="ch-count">12 skills</div><div class="ch-examples">Unit tests, E2E Playwright, coverage...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 05</div><h4>Git & Version Control</h4><div class="ch-count">10 skills</div><div class="ch-examples">Commits, PR descriptions, changelogs...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 06</div><h4>Documentation</h4><div class="ch-count">12 skills</div><div class="ch-examples">JSDoc, README, API docs, onboarding...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 07</div><h4>API Development</h4><div class="ch-count">12 skills</div><div class="ch-examples">REST, middleware, paginacao, webhooks...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 08</div><h4>Database</h4><div class="ch-count">10 skills</div><div class="ch-examples">SQL, indexes, migrations, seeds...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 09</div><h4>DevOps & Deploy</h4><div class="ch-count">10 skills</div><div class="ch-examples">Docker, CI/CD, K8s, monitoring...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 10</div><h4>Security</h4><div class="ch-count">10 skills</div><div class="ch-examples">OWASP, JWT auth, sanitizacao, RBAC...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 11</div><h4>Performance</h4><div class="ch-count">10 skills</div><div class="ch-examples">Bundle size, lazy loading, cache...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 12</div><h4>Frontend</h4><div class="ch-count">10 skills</div><div class="ch-examples">Responsive, design system, state...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 13</div><h4>Backend</h4><div class="ch-count">10 skills</div><div class="ch-examples">Queues, event-driven, cron, payments...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 14</div><h4>AI / ML</h4><div class="ch-count">8 skills</div><div class="ch-examples">Prompts, RAG, embeddings, agents...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 15</div><h4>Project Management</h4><div class="ch-count">8 skills</div><div class="ch-examples">Specs, task breakdown, sprint...</div></div>
+    <div class="chapter-card"><div class="ch-num">CAP. 16</div><h4>Code Review</h4><div class="ch-count">6 skills</div><div class="ch-examples">PR review, standards, security...</div></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-label">// PREVIEW</div>
+  <h2 class="section-title">Veja como cada skill funciona.</h2>
+  <p class="section-sub">5 exemplos reais. Imagine multiplicado por 166.</p>
+  <div class="skill-previews">
+    <div class="skill-card"><div class="skill-header" onclick="this.parentElement.classList.toggle('open')"><span class="sk-num">#001</span><h4>Scaffold Completo de API REST</h4><span class="sk-tag">code-gen</span><span class="sk-arrow">&#9660;</span></div><div class="skill-body"><p>Gera um projeto REST completo com rotas CRUD, validacao, middleware de auth, error handling e testes.</p><div class="skill-term"><span class="p">$</span> claude "Crie uma API REST completa em Node.js + Express<br>&nbsp;&nbsp;com TypeScript para gerenciamento de tarefas.<br>&nbsp;&nbsp;Inclua: CRUD, validacao Zod, auth JWT, testes Vitest<br>&nbsp;&nbsp;e Docker Compose para PostgreSQL."<br><br><span class="c">&#10003;</span> 23 arquivos criados<br><span class="c">&#10003;</span> Testes passando (18/18)<br><span class="c">&#10003;</span> Docker Compose pronto</div></div></div>
+    <div class="skill-card"><div class="skill-header" onclick="this.parentElement.classList.toggle('open')"><span class="sk-num">#042</span><h4>Gerar Testes E2E com Playwright</h4><span class="sk-tag">testing</span><span class="sk-arrow">&#9660;</span></div><div class="skill-body"><p>Analisa suas rotas e gera testes E2E cobrindo fluxos criticos do usuario.</p><div class="skill-term"><span class="p">$</span> claude "Gere testes E2E com Playwright para os fluxos<br>&nbsp;&nbsp;criticos: login, cadastro, dashboard e checkout.<br>&nbsp;&nbsp;Inclua setup, fixtures e CI config."<br><br><span class="c">&#10003;</span> 14 specs criados<br><span class="c">&#10003;</span> Cobertura: 94% dos fluxos<br><span class="c">&#10003;</span> GitHub Actions configurado</div></div></div>
+    <div class="skill-card"><div class="skill-header" onclick="this.parentElement.classList.toggle('open')"><span class="sk-num">#105</span><h4>Audit de Seguranca OWASP</h4><span class="sk-tag">security</span><span class="sk-arrow">&#9660;</span></div><div class="skill-body"><p>Varre o codebase buscando vulnerabilidades do OWASP Top 10 e gera relatorio com fixes.</p><div class="skill-term"><span class="p">$</span> claude "Faca um audit de seguranca completo.<br>&nbsp;&nbsp;Verifique OWASP Top 10. Para cada vulnerabilidade,<br>&nbsp;&nbsp;indique severity, arquivo:linha e fix.<br>&nbsp;&nbsp;Corrija as criticas."<br><br><span class="c">&#10003;</span> 7 vulnerabilidades encontradas<br><span class="c">&#10003;</span> 3 criticas corrigidas<br><span class="c">&#10003;</span> Relatorio gerado</div></div></div>
+    <div style="text-align:center;padding:20px 0;"><p style="color:var(--text-muted);font-size:13px;margin-bottom:4px;">+ 163 skills no ebook completo</p><a href="obrigado.html" class="btn-primary" style="font-size:14px;padding:12px 28px;">Baixar Gratis &rarr;</a></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-label">// POR QUE BAIXAR</div>
+  <h2 class="section-title">O que muda quando voce tem o sistema certo.</h2>
+  <p class="section-sub">Nao e sobre saber mais — e sobre ter os prompts certos na hora certa.</p>
+  <div class="benefits-grid">
+    <div class="benefit"><div class="b-icon">&#9889;</div><h3>10x mais rapido</h3><p>Cada skill entrega resultado em segundos. Sem tentativa e erro.</p></div>
+    <div class="benefit"><div class="b-icon">&#128736;</div><h3>Copy & paste ready</h3><p>Prompt exato, contexto de uso e output esperado. E so colar no terminal.</p></div>
+    <div class="benefit"><div class="b-icon">&#128218;</div><h3>Referencia permanente</h3><p>Nao e curso que voce esquece. E biblioteca que voce consulta sempre.</p></div>
+    <div class="benefit"><div class="b-icon">&#127919;</div><h3>Cobertura total</h3><p>16 capitulos cobrindo tudo que um dev full-stack precisa.</p></div>
+    <div class="benefit"><div class="b-icon">&#128640;</div><h3>Diferencial competitivo</h3><p>Enquanto outros fazem prompts genericos, voce executa workflows completos.</p></div>
+    <div class="benefit"><div class="b-icon">&#128274;</div><h3>Atualizado para 2026</h3><p>Skills para a versao mais recente do Claude Code com hooks e agentes.</p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-label">// PARA QUEM E</div>
+  <h2 class="section-title">Este ebook e para voce se...</h2>
+  <div class="audience-list">
+    <div class="audience-item"><span class="ck">&#10003;</span> Ja usa Claude Code mas sente que poderia extrair muito mais</div>
+    <div class="audience-item"><span class="ck">&#10003;</span> E dev e quer automatizar tarefas repetitivas com IA</div>
+    <div class="audience-item"><span class="ck">&#10003;</span> Esta cansado de escrever prompts que geram lixo</div>
+    <div class="audience-item"><span class="ck">&#10003;</span> Quer um sistema replicavel, nao dicas avulsas</div>
+    <div class="audience-item"><span class="ck">&#10003;</span> Trabalha com freelance e precisa entregar mais rapido</div>
+    <div class="audience-item"><span class="ck">&#10003;</span> Lidera um time e quer padronizar o uso de IA</div>
+  </div>
+</section>
+
+<section class="cta-section reveal" id="download">
+  <div class="cta-card">
+    <div class="c-free">GRATIS</div>
+    <div class="c-title">166 Skills para Claude Code</div>
+    <ul class="c-features">
+      <li><span class="ck">&#10003;</span> Ebook completo com 166 skills (PDF)</li>
+      <li><span class="ck">&#10003;</span> 16 capitulos organizados por area</li>
+      <li><span class="ck">&#10003;</span> Prompts copy & paste prontos</li>
+      <li><span class="ck">&#10003;</span> Exemplos reais com output esperado</li>
+      <li><span class="ck">&#10003;</span> Bonus: capitulo de workflows avancados</li>
+      <li><span class="ck">&#10003;</span> Atualizacoes futuras gratuitas</li>
+    </ul>
+    <a href="obrigado.html" class="c-btn">BAIXAR EBOOK GRATIS &rarr;</a>
+    <div class="c-note">Download imediato. Sem cadastro. Sem spam.</div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="section-label">// FAQ</div>
+  <h2 class="section-title">Perguntas frequentes</h2>
+  <div class="faq-list" style="margin-top:24px;">
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Preciso saber programar? <span class="arrow">&#9660;</span></div><div class="faq-a">Sim, e voltado para devs que ja programam. Qualquer nivel se beneficia.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Funciona com qualquer linguagem? <span class="arrow">&#9660;</span></div><div class="faq-a">Sim. Claude Code trabalha com qualquer linguagem. Exemplos em TypeScript, Python e Node.js.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Preciso de assinatura do Claude? <span class="arrow">&#9660;</span></div><div class="faq-a">Sim, voce precisa de acesso ao Claude Code (CLI da Anthropic) para usar as skills.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Em que formato vem? <span class="arrow">&#9660;</span></div><div class="faq-a">PDF otimizado com blocos de codigo prontos para copiar.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Por que e gratis? <span class="arrow">&#9660;</span></div><div class="faq-a">Queremos que o maximo de devs domine o Claude Code. O ebook e nossa forma de contribuir com a comunidade.</div></div>
+  </div>
+</section>
+
+<section class="final-cta reveal">
+  <h2>Pare de subutilizar<br>a ferramenta mais poderosa<br>que voce <span>ja tem.</span></h2>
+  <p>166 skills. 16 capitulos. Um ebook. Download imediato.</p>
+  <a href="obrigado.html" class="btn-primary" style="font-size:18px;padding:18px 48px;">Baixar Ebook Gratis &rarr;</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">&gt;_ <span>We</span>{Stack}</div>
+  <p>&copy; 2026 WeStack. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>
